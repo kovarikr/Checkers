@@ -1,70 +1,70 @@
-# Konzolová Dáma (Checkers in C#)
+## Console Checkers (Checkers in C#)
+A simple console-based implementation of the checkers (draughts) game for two players. The project is written in C# and runs as a console application.
 
-Jednoduchá konzolová implementace hry **dáma** (checkers) pro dva hráče. Projekt je napsán v jazyce **C#** a běží v příkazové řádce (Console App).
+## 🎮 Game Description
+The game is intended for two players playing on the same computer.
 
-## 🎮 Popis hry
+Each player takes turns, aiming to eliminate all of the opponent's pieces.
 
-- Hra je určena pro dva hráče hrající na jednom počítači.
-- Každý hráč hraje střídavě, přičemž jeho cílem je **odstranit všechny soupeřovy figurky**.
-- Figurka se může pohybovat **diagonálně** vpřed (nebo oběma směry, pokud je z ní král).
-- Při přeskočení soupeřovy figurky je tato odstraněna.
+A piece can move diagonally forward (or both directions if it becomes a king).
 
-## ♟️ Značky figurek:
+Jumping over an opponent’s piece removes it from the board.
 
-- `O` – Hráč 1 (obyčejná figurka)
-- `K` – Hráč 1 (král)
-- `X` – Hráč 2 (obyčejná figurka)
-- `Q` – Hráč 2 (král)
-- `-` – Prázdné pole
+## ♟️ Piece Symbols:
+O – Player 1 (regular piece)
 
-## ▶️ Spuštění
+K – Player 1 (king)
 
-1. Otevřete projekt v libovolném IDE pro C# (např. Visual Studio nebo Rider).
-2. Zkompilujte a spusťte projekt jako konzolovou aplikaci.
+X – Player 2 (regular piece)
 
-Alternativně spusťte přeložený `.exe` soubor v příkazové řádce:
+Q – Player 2 (king)
+
+- – Empty space
+
+## ▶️ Running the Game
+Open the project in any C# IDE (e.g., Visual Studio or Rider).
+
+Compile and run the project as a Console Application.
+
+Alternatively, run the compiled .exe from the command line:
+
 ```bash
 dotnet run
 ```
+## 🕹️ Controls
+The game runs in the console, and players manually enter their moves using coordinates.
 
-## 🕹️ Ovládání
+Coordinates are entered in the format: row column (space-separated).
 
-Hra běží v konzoli a hráči zadávají své tahy ručně pomocí souřadnic.
+First, enter the starting position of the piece, then the target position.
 
-Souřadnice se zadávají ve formátu: řádek sloupec (odděleno mezerou).
+Example move:
+```bash
+Enter starting row and column (separated by space): 2 0  
+Enter target row and column (separated by space): 3 1
+```
+If the move is invalid, a message will be displayed, and the player must try again.
 
-Nejprve zadáte startovní pozici figurky a poté cílovou pozici.
+When a regular piece reaches the last row, it is promoted to a king (K or Q).
 
-Příklad tahu:
-java
-Zkopírovat
-Upravit
-Vložte začínající řádek a sloupec (oddělit mezerou):
-2 0
-Vložte končící řádek a sloupec (oddělit mezerou):
-3 1
-Pokud je tah neplatný, zobrazí se hláška a hráč musí zadat nový tah.
+## ⚠️ Limitations
+Multiple jumps are not implemented.
 
-Při dosažení poslední řady se obyčejná figurka promění na krále (K nebo Q).
+King movement logic (especially diagonal backward movement) is partially incomplete.
 
-## ⚠️ Omezení
-Neimplementuje vícenásobné skákání (multi-jumps).
+Input validation is basic – players must enter correct numbers (0–7).
 
-Neřeší automaticky tahy krále diagonálně dozadu (chování krále je částečně nedokončené).
+## 📁 Structure
+Program.cs – the main file containing the game logic
 
-Ošetření vstupu je základní – uživatel musí zadávat korektní čísla mezi 0–7.
+All methods (IsValidMove, CheckWin, DrawBoard) are defined in the same class
 
-## 📁 Struktura
-Program.cs – hlavní soubor s logikou hry
+## 🛠️ Possible Improvements
+Add an AI opponent
 
-Všechny metody (IsValidMove, Vyhral, VykresliPole) jsou definovány ve stejné třídě
+Improve rules (e.g., multi-jumps, forced jumps)
 
-## 🛠️ Možnosti vylepšení
-Přidat AI protihráče
+Add a graphical user interface (GUI) using WinForms or WPF
 
-Vylepšit pravidla (např. vícenásobné skoky, nucené skákání)
-
-Přidat grafické uživatelské rozhraní (GUI) pomocí WinForms nebo WPF
-
-Implementovat ukládání a načítání stavu hry
+Implement saving and loading of game state
 
